@@ -1,16 +1,9 @@
-function minDepth(root) {
-  if (!root) return 0;
-  const queue = [root];
-  let depth = 1;
-  while (queue.length) {
-    const size = queue.length;
-    for (let i = 0; i < size; i++) {
-      const node = queue.shift();
-      if (!node.left && !node.right) return depth;
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
-    }
-    depth++;
+function isSubsequence(s, t) {
+  let i = 0;
+  let j = 0;
+  while (i < s.length && j < t.length) {
+    if (s[i] === t[j]) i++;
+    j++;
   }
-  return depth;
+  return i === s.length;
 }
